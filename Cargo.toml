@@ -1,0 +1,19 @@
+[package]
+name = "levenshtein-py"
+version = "0.1.0"
+authors = ["Termonoid <termonoid@yandex.ru>"]
+edition = "2018"
+
+[lib]
+name = "levenshtein"
+crate-type = ["cdylib"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+cpython = { version = "0.5.1", features = ["extension-module"] }
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
